@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IZIN KELUAR MURID - MAN Bantaeng</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="logo.png" alt="Logo MAN Bantaeng" class="logo" onerror="this.src='https://via.placeholder.com/100x100?text=LOGO'">
+            <h1>IZIN KELUAR MURID</h1>
+            <h2>MAN Bantaeng</h2>
+        </header>
+
+        <main>
+            <section class="card form-section">
+                <h3>📝 Formulir Izin Keluar</h3>
+                <form id="izinForm">
+                    <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input type="text" name="nama" required placeholder="Masukkan nama lengkap murid">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Kelas</label>
+                            <select name="kelas" required>
+                                <option value="">Pilih Kelas</option>
+                                <option value="X.1">X.1</option><option value="X.2">X.2</option>
+                                <option value="X.3">X.3</option><option value="X.4">X.4</option>
+                                <option value="XI.1">XI.1</option><option value="XI.2">XI.2</option>
+                                <option value="XI.3">XI.3</option><option value="XI.4">XI.4</option>
+                                <option value="XII.1">XII.1</option><option value="XII.2">XII.2</option>
+                                <option value="XII.3">XII.3</option><option value="XII.4">XII.4</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Hari</label>
+                            <select name="hari" required>
+                                <option value="">Pilih Hari</option>
+                                <option value="Senin">Senin</option><option value="Selasa">Selasa</option>
+                                <option value="Rabu">Rabu</option><option value="Kamis">Kamis</option>
+                                <option value="Jum'at">Jum'at</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Tanggal</label>
+                            <input type="number" name="tanggal" min="1" max="31" required placeholder="1-31">
+                        </div>
+                        <div class="form-group">
+                            <label>Jam</label>
+                            <input type="time" name="jam" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Bulan</label>
+                            <select name="bulan" required>
+                                <option value="">Pilih Bulan</option>
+                                <option value="Januari">Januari</option><option value="Februari">Februari</option>
+                                <option value="Maret">Maret</option><option value="April">April</option>
+                                <option value="Mei">Mei</option><option value="Juni">Juni</option>
+                                <option value="Juli">Juli</option><option value="Agustus">Agustus</option>
+                                <option value="September">September</option><option value="Oktober">Oktober</option>
+                                <option value="Nopember">Nopember</option><option value="Desember">Desember</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Yang Memberi Izin</label>
+                        <select name="pemberiIzin" required>
+                            <option value="">Pilih Pemberi Izin</option>
+                            <option value="MUHAMMAD ARIF PITHER, S.Ag, MM">MUHAMMAD ARIF PITHER, S.Ag, MM</option>
+                            <option value="SYAFIUDDIN, S.Pd, M.Pd">SYAFIUDDIN, S.Pd, M.Pd</option>
+                            <option value="ST.HASNAH, S.Pd, MM">ST.HASNAH, S.Pd, MM</option>
+                            <option value="ST. ASMA ASIZ, S.Pd., M.Pd">ST. ASMA ASIZ, S.Pd., M.Pd</option>
+                            <option value="FATIMAH, S.Pd">FATIMAH, S.Pd</option>
+                            <option value="HERLIN, S.Pd">HERLIN, S.Pd</option>
+                            <option value="MUFLIH HAERATI, S.Si">MUFLIH HAERATI, S.Si</option>
+                            <option value="ST. SAINAB, S.Ag">ST. SAINAB, S.Ag</option>
+                            <option value="SITI JASILA, S.Pd">SITI JASILA, S.Pd</option>
+                            <option value="A. FAISAL ISMAIL, S.Pd.I">A. FAISAL ISMAIL, S.Pd.I</option>
+                            <option value="ARMAN ARDIANSYAH, S.Pd.,M.Pd">ARMAN ARDIANSYAH, S.Pd.,M.Pd</option>
+                            <option value="NURLINDA, S.Pd">NURLINDA, S.Pd</option>
+                            <option value="NURUL FAIQAH JAMAL, S.Pd">NURUL FAIQAH JAMAL, S.Pd</option>
+                            <option value="FATMAWATI, S.Pd">FATMAWATI, S.Pd</option>
+                            <option value="NURPAHMI, S.Pd">NURPAHMI, S.Pd</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Alasan Keluar</label>
+                        <textarea name="alasan" rows="3" required placeholder="Jelaskan alasan keluar..."></textarea>
+                    </div>
+
+                    <button type="submit" id="submitBtn">Kirim Permohonan Izin</button>
+                    <p id="statusMsg" class="status-msg"></p>
+                </form>
+            </section>
+
+            <section class="card dashboard-section">
+                <h3>📊 Dashboard Laporan Izin Keluar (50 Data Terbaru)</h3>
+                <div class="table-responsive">
+                    <table id="dashboardTable">
+                        <thead>
+                            <tr>
+                                <th>Waktu Input</th>
+                                <th>Nama</th>
+                                <th>Kelas</th>
+                                <th>Hari/Tgl/Bln</th>
+                                <th>Jam</th>
+                                <th>Pemberi Izin</th>
+                                <th>Alasan</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody">
+                            <tr><td colspan="7" style="text-align:center;">Memuat data...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button onclick="loadDashboardData()" class="refresh-btn">🔄 Muat Ulang Data</button>
+            </section>
+        </main>
+        
+        <footer>
+            <p>&copy; 2026 MAN Bantaeng - Zona Integritas</p>
+        </footer>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
